@@ -42,7 +42,7 @@
           <h1 class="text-2xl font-bold text-gray-900">Privacy Policy</h1>
           <p class="text-sm text-gray-500 mt-1">FiTest Chrome Extension — Ihsan Solusi Informatika</p>
         </div>
-        <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-200 self-start">Last updated: March 2026</span>
+        <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full border border-blue-200 self-start">Last updated: April 2026</span>
       </div>
       <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-100">
         <span class="flex items-center gap-1.5 px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <!-- ✦ NEW: Why This Policy Is Hosted on GitHub -->
+    <!-- Why This Policy Is Hosted on GitHub -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-4">
       <div class="flex items-center gap-2 mb-3">
         <div class="w-7 h-7 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -112,7 +112,7 @@
         FiTest Extension is an internal QA automation tool developed by Ihsan Solusi Informatika. It enables authorized testers to record user interactions within the company's internal web application — the <strong class="text-gray-800">FiTest platform</strong> — generating XPath-based test scripts by capturing clicks, inputs, and file upload events during an active recording session.
       </p>
       <p class="text-sm text-gray-600 leading-relaxed mt-2">
-        This extension is <strong class="text-gray-800">purpose-built and tightly coupled</strong> to the FiTest application. It does not operate on, interact with, or collect data from any other website or web application. Attempting to use the extension on any page outside of the FiTest platform will result in no functionality being available.
+        This extension is <strong class="text-gray-800">purpose-built and tightly coupled</strong> to the FiTest application. It does not operate on, interact with, or collect data from any other website or web application. The recorder only activates when explicitly triggered by the FiTest control window via the browser's <code class="bg-gray-100 px-1 rounded text-xs">postMessage</code> API — it is functionally dormant on all other pages.
       </p>
       <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg flex items-start gap-2">
         <i class="fas fa-circle-exclamation text-blue-500 text-sm mt-0.5 flex-shrink-0"></i>
@@ -224,6 +224,18 @@
           </span>
           <span class="text-xs text-gray-600">Full website content or page structure</span>
         </div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50 border border-gray-100">
+          <span class="w-4 h-4 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-xmark text-red-500 text-[9px]"></i>
+          </span>
+          <span class="text-xs text-gray-600">Data from any non-FiTest website</span>
+        </div>
+        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50 border border-gray-100">
+          <span class="w-4 h-4 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-xmark text-red-500 text-[9px]"></i>
+          </span>
+          <span class="text-xs text-gray-600">Persistent or stored data of any kind</span>
+        </div>
       </div>
     </div>
 
@@ -239,7 +251,7 @@
         All recorded interaction data is transmitted <strong class="text-gray-800">locally</strong> via the browser's <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">postMessage</code> API to the Test Recorder Control window running on the same device. No data is sent to any external server, third-party service, or cloud platform.
       </p>
       <p class="text-sm text-gray-600 leading-relaxed mt-2">
-        Data exists only within the active browser session and is used solely to compile reusable automated test scripts for internal QA purposes.
+        Data exists only within the active browser session and is used solely to compile reusable automated test scripts for internal QA purposes. <strong class="text-gray-800">No data is ever persisted</strong> — the extension uses no local storage, session storage, or any other persistence mechanism.
       </p>
       <div class="mt-4 grid grid-cols-3 gap-3">
         <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 text-center">
@@ -260,7 +272,7 @@
       </div>
     </div>
 
-    <!-- Permissions -->
+    <!-- Permissions — UPDATED -->
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-4">
       <div class="flex items-center gap-2 mb-4">
         <div class="w-7 h-7 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -268,22 +280,30 @@
         </div>
         <h2 class="text-base font-semibold text-gray-800">Permissions Explained</h2>
       </div>
+
+      <!-- Removed permissions notice -->
+      <div class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg flex items-start gap-2">
+        <i class="fas fa-circle-check text-green-500 text-sm mt-0.5 flex-shrink-0"></i>
+        <p class="text-xs text-green-800 leading-relaxed">
+          This extension requests the <strong>minimum permissions necessary</strong> to fulfil its single purpose. No <code class="bg-white border border-gray-200 px-1 rounded text-[10px]">activeTab</code>, <code class="bg-white border border-gray-200 px-1 rounded text-[10px]">scripting</code>, or <code class="bg-white border border-gray-200 px-1 rounded text-[10px]">storage</code> permissions are declared — none are required by the extension's design.
+        </p>
+      </div>
+
       <div class="divide-y divide-gray-100">
+        <!-- host_permissions only -->
         <div class="py-3 flex items-start gap-3">
-          <code class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200 font-mono flex-shrink-0 mt-0.5">activeTab</code>
-          <p class="text-xs text-gray-600">Access the active tab to inject the recorder and capture user interactions during a test recording session.</p>
-        </div>
-        <div class="py-3 flex items-start gap-3">
-          <code class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200 font-mono flex-shrink-0 mt-0.5">scripting</code>
-          <p class="text-xs text-gray-600">Inject the test recorder script into the target tab when a recording session is initiated by the Control window.</p>
-        </div>
-        <div class="py-3 flex items-start gap-3">
-          <code class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200 font-mono flex-shrink-0 mt-0.5">storage</code>
-          <p class="text-xs text-gray-600">Persist recording session state (e.g. active/inactive) across tab navigations. No personal data is stored.</p>
-        </div>
-        <div class="py-3 flex items-start gap-3">
-          <code class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200 font-mono flex-shrink-0 mt-0.5">host_permissions</code>
-          <p class="text-xs text-gray-600">The FiTest internal application may be served under varying internal hostnames depending on the team's VPN and network configuration. Broad host permission ensures the extension can activate regardless of which internal hostname is in use. <strong class="text-gray-700">The extension does not collect any data from public websites</strong> — it is functionally inactive on any page outside the FiTest platform, as its recorder logic and UI controls are only initialized when communicating with the FiTest application.</p>
+          <code class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200 font-mono flex-shrink-0 mt-0.5">&lt;all_urls&gt;</code>
+          <div>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Required as a host permission because the FiTest internal application may be served under varying internal hostnames depending on the team's VPN and network configuration — these URLs cannot be predetermined or hardcoded. The content script must be present on any page that could be the recording target.
+            </p>
+            <div class="mt-2 p-2 bg-amber-50 border border-amber-200 rounded flex items-start gap-1.5">
+              <i class="fas fa-triangle-exclamation text-amber-500 text-[10px] mt-0.5 flex-shrink-0"></i>
+              <p class="text-[10px] text-amber-800 leading-relaxed">
+                <strong>Important safeguard:</strong> Although the content script is injected on all pages, the recorder logic is <em>entirely dormant</em> unless the FiTest control window explicitly activates it via a <code class="bg-white border border-gray-200 px-0.5 rounded">postMessage</code> signal. No data is recorded, transmitted, or processed on any page outside an active FiTest recording session.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -307,7 +327,7 @@
             </span>
             <p class="text-xs font-semibold text-green-800">Active on</p>
           </div>
-          <p class="text-xs text-green-700 leading-relaxed">The FiTest internal web application, accessible via authorized corporate VPN only.</p>
+          <p class="text-xs text-green-700 leading-relaxed">The FiTest internal web application, accessible via authorized corporate VPN only, when a recording session has been explicitly started by the tester.</p>
         </div>
         <div class="p-3 bg-red-50 border border-red-200 rounded-lg">
           <div class="flex items-center gap-2 mb-2">
@@ -316,13 +336,13 @@
             </span>
             <p class="text-xs font-semibold text-red-800">Inactive on</p>
           </div>
-          <p class="text-xs text-red-700 leading-relaxed">Any public website, third-party web application, or any URL outside the FiTest platform — no data is recorded or transmitted in these contexts.</p>
+          <p class="text-xs text-red-700 leading-relaxed">Any public website, third-party web application, or any URL outside an active FiTest session — no data is recorded, processed, or transmitted in these contexts.</p>
         </div>
       </div>
       <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg flex items-start gap-2">
         <i class="fas fa-info-circle text-gray-400 text-sm mt-0.5 flex-shrink-0"></i>
         <p class="text-xs text-gray-600 leading-relaxed">
-          The extension's recording logic, control UI, and data transmission are only initialized through a deliberate action within the FiTest application. There is no passive background activity on other tabs or websites.
+          The extension's recording logic, control UI, and data transmission are only initialized through a deliberate action within the FiTest application. There is no passive background activity on other tabs or websites. The extension stores no data whatsoever — all in-session state lives only in memory and is discarded when the browser tab is closed or the recording session ends.
         </p>
       </div>
     </div>
@@ -356,4 +376,9 @@
     <!-- Footer -->
     <div class="text-center text-xs text-gray-400 pb-8">
       <p>© 2026 Ihsan Solusi Informatika &nbsp;·&nbsp; FiTest Extension v2.9 &nbsp;·&nbsp; Internal Use Only</p>
-      <p class="mt-1 text-[10px] text-gray-300">This privacy policy is published on GitHub Pages solely to satisfy the Chrome Web Store's public URL r
+      <p class="mt-1 text-[10px] text-gray-300">This privacy policy is published on GitHub Pages solely to satisfy the Chrome Web Store's public URL requirement. No user data is stored or transmitted externally.</p>
+    </div>
+
+  </div>
+</body>
+</html>
